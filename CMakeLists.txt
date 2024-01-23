@@ -59,6 +59,7 @@ if(LIB_NAVA2_CORE_INTERPRETERS_USE_CATCH)
 endif()
 
 # Add dependencies source code
+add_subdirectory(deps/pegtl-3.2.7 build-pegtl)
 
 # Main headers and sources
 file(GLOB_RECURSE SOURCES_NAVA2_CORE_INTERPRETERS CONFIGURE_DEPENDS
@@ -69,6 +70,7 @@ file(GLOB_RECURSE SOURCES_NAVA2_CORE_INTERPRETERS CONFIGURE_DEPENDS
 
 add_library(${PROJECT_NAME} ${SOURCES_NAVA2_CORE_INTERPRETERS} )
 target_link_libraries(${PROJECT_NAME} 
+    taocpp::pegtl
     absl::base 
     absl::flat_hash_map 
     absl::algorithm
