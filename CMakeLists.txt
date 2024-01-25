@@ -79,7 +79,7 @@ add_subdirectory(deps/pegtl-3.2.7 build-pegtl)
 find_package(Python3 COMPONENTS Interpreter Development.Embed REQUIRED)
 add_subdirectory(deps/pybind11 build/pybind11)
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/navascript/helo-python.py
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/navascript/navarun.py
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/navascript/)
 
 # Main headers and sources
