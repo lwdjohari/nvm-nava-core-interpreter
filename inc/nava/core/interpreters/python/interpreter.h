@@ -41,14 +41,11 @@ class PythonInterpreter {
         flag_once_.Signal();
       }
 
-
-      // scope.attr("clear")();
-      py::module::import("gc").attr("collect")();
       py::object scope = py::module_::import("__main__").attr("__dict__");
 
       py::eval_file(python_file, scope);
 
-      // scope.attr("clear")();
+      scope.attr("clear")();
       py::module::import("gc").attr("collect")();
     } catch (py::error_already_set const &e) {
       std::cerr << "Navascript Python error: " << e.what() << std::endl;
